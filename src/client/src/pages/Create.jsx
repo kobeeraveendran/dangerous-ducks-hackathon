@@ -1,7 +1,7 @@
-import React from "react";
-import { v1 as uuid } from "uuid";
+import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import { v1 as uuid } from 'uuid';
 
 const ContentContainer = styled.div`
   text-align: center;
@@ -9,16 +9,9 @@ const ContentContainer = styled.div`
   width: 80vw;
 `;
 
-const Create =  () => {
-
+const Create = () => {
   let history = useHistory();
   let id = uuid();
-
-  function createRoom() {
-    const id = uuid();
-    history.push(`/meeting/${id}`);
-  }
-  
   return (
     <ContentContainer>
       <div className="hero-body">
@@ -29,7 +22,7 @@ const Create =  () => {
           </h2>
           <h2
             className="button is-info is-size-5"
-            onClick={ createRoom }
+            onClick={() => history.push(`/meeting/${id}`)}
           >
             Create Room
           </h2>
@@ -40,16 +33,3 @@ const Create =  () => {
 };
 
 export default Create;
-
-// const CreateRoom = (props) => {
-//     function create() {
-//         const id = uuid();
-//         props.history.push(`/room/${id}`);
-//     }
-
-//     return (
-//         <button onClick={create}>Create room</button>
-//     );
-// };
-
-// export default CreateRoom;
